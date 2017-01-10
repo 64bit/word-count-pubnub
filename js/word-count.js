@@ -1,5 +1,6 @@
 
 var config = {
+  ssl: true,
   publish_key: 'pub-c-c68393a7-4def-44c9-b976-ce3edca2384a',
   subscribe_key: 'sub-c-76c62aec-d6f1-11e6-b72f-02ee2ddab7fe'
 }
