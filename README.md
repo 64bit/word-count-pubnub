@@ -1,6 +1,8 @@
 # word-count-pubnub
 Counts word on a webpage using Block on PubNub
 
+Demo: https://64bit.github.io/word-count-pubnub/
+
 
 # Data Flow: 
 
