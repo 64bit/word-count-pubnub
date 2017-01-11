@@ -1,7 +1,5 @@
 export default (request) => { 
     const pubnub = require('pubnub');
-    const kvstore = require('kvstore');
-    const xhr = require('xhr');
     
     const channel = 'words';
     const body = request.message.body;

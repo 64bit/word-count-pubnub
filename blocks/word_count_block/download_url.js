@@ -1,6 +1,5 @@
 export default (request) => { 
     const pubnub = require('pubnub');
-    const kvstore = require('kvstore');
     const xhr = require('xhr');
 
     const MAX_PAGE_SIZE = 15000;

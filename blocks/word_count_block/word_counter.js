@@ -1,7 +1,5 @@
 export default (request) => { 
     const pubnub = require('pubnub');
-    const kvstore = require('kvstore');
-    const xhr = require('xhr');
 
     const channel = "counted-words";
     const words = request.message.words;
