@@ -26,6 +26,24 @@ function word_count(url) {
   });
 }
 
+function sorted_words(word_count_dict) {
+  var pairs = [];
+  for(key in word_count_dict) 
+    pairs.push([key, word_count_dict[key]]);
+
+  pairs.sort(function(p1, p2) {
+    count1 = p1[1];
+    count2 = p2[1];
+    if(count1 < count2)
+      return -1;
+    else if(count1 > count2)
+      return 1
+    return 0;
+  });
+
+  return pairs;
+}
+
 pubnub.subscribe({
     channel : output_channel,
     message : function( message, env, channel ){
@@ -36,12 +54,13 @@ pubnub.subscribe({
         }
       
         var words = message['counted-words'];
-        for(word in words) { 
+        var words_with_count = sorted_words(words);
+        for(i = 0 ; i < words_with_count.length; ++i) { 
           var row = table.insertRow(0);
           var cell_one = row.insertCell(0);
           var cell_two = row.insertCell(1);
-          cell_one.innerHTML = word;
-          cell_two.innerHTML = words[word];  
+          cell_one.innerHTML = words_with_count[i][0];
+          cell_two.innerHTML = words_with_count[i][1];  
         }
     },
     connect : function(){
